@@ -1,6 +1,6 @@
 <template>
   <div id="wavesDivider" class="relative w-full" :class="height">
-    <div class="shapeDivider" :class="textcolor">
+    <div class="shapeDivider" :class="[textcolor, width]">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,8 @@
 export default {
   props: {
     textcolor: { default: "text-primary" },
-    height: { default: "h-14" }
+    height: { default: "h-14" },
+    width: { default: "w-full" }
   }
 };
 </script>
@@ -39,7 +40,7 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  /* width: 100%; */
   overflow: hidden;
   line-height: 0;
   transform: rotate(180deg);

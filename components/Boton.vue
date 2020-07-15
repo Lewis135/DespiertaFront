@@ -1,17 +1,15 @@
 <template>
   <div
-    class="mx-auto p-5 text-center mt-10 rounded-2xl rounded-tr-none select-none cursor-pointer shadow-lg"
-    :class="bgcolor"
+    class="mx-auto px-5 text-center rounded-2xl rounded-tr-none select-none cursor-pointer shadow-lg"
   >
-    <span class="text-xl text-lightShade uppercase font-medium">{{text}}</span>
+    <span class="text-lightShade font-medium">{{text}}</span>
   </div>
 </template>
 <script>
 export default {
   name: "Boton",
   props: {
-    text: { defaul: "Aceptar" },
-    bgcolor: { default: "bg-primary" }
+    text: { defaul: "Aceptar" }
   },
   computed: {}
 };

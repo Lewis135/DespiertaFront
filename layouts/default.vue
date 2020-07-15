@@ -1,7 +1,7 @@
 <template>
   <div class="body min-h-screen text-darkText">
     <div
-      class="fixed top-0 w-full z-100 shadow-md bg-lightShade bg-opacity-98 border-b-6 border-lightAccent h-32"
+      class="sticky top-0 w-full z-100 shadow-md bg-lightShade bg-opacity-98 border-b-6 border-lightAccent h-32"
     >
       <div class="flex h-full w-3/4 mx-auto">
         <!-- Logo -->
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <nuxt class="relative mt-32" />
+    <nuxt class="relative" />
 
     <!-- Footer -->
     <div class="relative bg-darkText text-white shadow-2xl flex-col-end">
@@ -28,7 +28,7 @@
       </div>
       <!-- <div
         class="absolute bottom-0 right-2 text-sm text-primary"
-      >Con mucho ♥♥ por Ricardo Montaner Lopez</div> -->
+      >Con mucho ♥♥ por Ricardo Montaner Lopez</div>-->
     </div>
   </div>
 </template>

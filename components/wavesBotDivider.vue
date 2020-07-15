@@ -1,6 +1,6 @@
 <template>
   <div id="wavesDivider" class="relative w-full" :class="height">
-    <div class="shapeDivider" :class="[textcolor, width]">
+    <div class="shapeDivider w-full">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"

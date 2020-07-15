@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#f2f2f2",
+        primary: "#e5e5e5",
         lightAccent: "#db6da7",
         darkAccent: "#1eaa94",
         darkAccentHover: "#DE460E",
@@ -203,6 +203,7 @@ module.exports = {
       "500": "500ms",
       "750": "750ms",
       "1000": "1000ms",
+      "2500": "2500ms",
       "5000": "5000ms",
       "1trillon": "626352531ms",
     },
@@ -211,6 +212,7 @@ module.exports = {
     width: ["responsive", "hover"],
     justifyContent: ["responsive", "group-hover"],
     display: ["responsive", "hover", "group-hover"],
+    color: ["hover"],
     maxWidth: ["hover"],
     backgroundColor: ["responsive", "hover", "focus", "odd"],
     flexDirection: ["responsive"],

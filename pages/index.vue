@@ -2,24 +2,37 @@
   <!-- Body -->
   <div class="relative w-full overflow-x-hidden">
     <!-- Tati -->
-    <div class="flex-col-center min-h-screen-2/2">
+    <div class="flex-col-center">
       <TatiSection class="w-10/12 mx-auto" />
     </div>
 
-    <WavesBotDivider :textcolor="'text-primary'" :height="'h-16'" />
+    <WavesBotDivider class="text-primary" :height="'h-20'" />
+    <!-- <WavesTopDivider class="text-primary" :height="'h-16'" /> -->
 
     <!-- Vicente -->
-    <div class="flex-col-center min-h-screen-2/3 bg-primary">
+    <div class="flex-col-center bg-primary">
       <VicenteSection class="w-10/12 mx-auto" />
     </div>
 
-    <WavesTopDivider :textcolor="'text-primary'" :height="'h-16'" />
-    <WavesBotDivider :textcolor="'text-primary'" :height="'h-16'" :width="'w-5/2'" />
+    <!-- <WavesTopDivider :textcolor="'text-primary'" :height="'h-16'" /> -->
+
+    <!-- <WavesBotDivider class="text-darkAccent" :height="'h-16'" /> -->
+    <WavesTopDivider class="text-primary w-5/2" :height="'h-16'" />
 
     <!-- Posts -->
-    <div class="flex-col-center bg-primary">
+    <div class="flex-col-center">
       <PostsPrincipales class="w-10/12 mx-auto" />
     </div>
+
+    <div class="text-primary hover:text-pink-200 transition-duration-5000 w-full hover:w-5/2">
+      <WavesBotDivider class="w-5/2" :height="'h-20'" />
+      <WavesTopDivider :height="'h-16'" />
+    </div>
+    <!-- Seccion de clientes -->
+    <div class="flex-col-center">
+      <clientesContentos />
+    </div>
+    <WavesBotDivider class="text-darkText" :height="'h-40'" />
   </div>
 </template>
 
@@ -29,6 +42,7 @@ import VicenteSection from "~/components/sections/vicenteSection.vue";
 import WavesBotDivider from "~/components/wavesBotDivider.vue";
 import WavesTopDivider from "~/components/wavesTopDivider.vue";
 import PostsPrincipales from "~/components/blog/postsPrincipales.vue";
+import ClientesContentos from "~/components/clientesContentos.vue";
 
 import ImgWrapper from "~/components/ImgWrapper.vue";
 
@@ -53,6 +67,7 @@ export default {
     WavesBotDivider,
     WavesTopDivider,
     PostsPrincipales,
+    ClientesContentos,
     ImgWrapper
   }
 };

@@ -2,11 +2,14 @@
   <div class="relative py-8">
     <div class="flex flex-wrap mx-auto">
       <div class="w-1/2">
-        <ImgWrapper :src="tatiLogo" :bgImage="bgImage" class="w-4/5 mx-auto" />
+        <ImgWrapper :src="tatiLogo" :bgImage="bgImage" class="w-3/4 mx-auto" />
       </div>
       <div class="w-1/2 flex-col-center">
         <div class="text-4xl font-medium">Vive disfrutando de cada momento que pasas contigo mismo.</div>
-        <Boton text="Descubre el mindfulness" bgcolor="bg-lightAccent hover:bg-pink-200" />
+        <Boton
+          class="mt-10 py-5 text-xl uppercase bg-lightAccent hover:bg-pink-200"
+          text="Descubre el mindfulness"
+        />
       </div>
     </div>
   </div>

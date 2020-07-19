@@ -10,13 +10,14 @@
       <!-- Texto -->
       <div class="relative flex-grow pl-1 h-full">
         <div class="font-semibold">{{titulo}}</div>
+        <div class="postBackground absolute h-full w-full pointer-events-none" />
         <p class>{{summary}}</p>
       </div>
     </div>
     <!-- Etiquetas  -->
-    <!-- <div class="flex text-xs mt-4">
+    <div class="flex text-xs mt-4">
       <div v-for="(tag,index) in listaTags" :key="index" class="px-2">#{{tag}}</div>
-    </div>-->
+    </div>
   </div>
 </template>
 
@@ -50,5 +51,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.postBackground {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
 </style>

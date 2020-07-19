@@ -1,6 +1,5 @@
 <template>
   <div class="relative flex flex-wrap justify-around py-8">
-    <!-- {{listaPost}} -->
     <div class="pr-5 w-1/2">
       <span class="text-2xl font-medium">Ultimos posts</span>
       <div v-for="post in listaPost" :key="post.id">

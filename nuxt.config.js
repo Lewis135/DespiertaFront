@@ -25,6 +25,7 @@ export default {
   /**Env variable */
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
+
   },
 
   /*
@@ -36,6 +37,7 @@ export default {
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
+
   plugins: [
   ],
   /*
@@ -61,7 +63,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/apollo',
+    '@nuxtjs/apollo'
 
   ],
   /*

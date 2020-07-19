@@ -1,37 +1,39 @@
  <template>
   <!-- Body -->
   <div class="relative w-full overflow-x-hidden">
+    Seccion de presentacion de la tienda
+    <WavesBotDivider class="text-lightAccent" :height="'h-20'" />
+    <WavesTopDivider class="text-lightAccent" :height="'h-16'" />
     <!-- Tati -->
     <div class="flex-col-center">
       <TatiSection class="w-10/12 mx-auto" />
     </div>
 
-    <WavesBotDivider class="text-primary" :height="'h-20'" />
-    <!-- <WavesTopDivider class="text-primary" :height="'h-16'" /> -->
+    <WavesBotDivider class="text-darkAccent" :height="'h-20'" />
+    <WavesTopDivider class="text-darkAccent w-5/2" :height="'h-16'" />
 
     <!-- Vicente -->
-    <div class="flex-col-center bg-primary">
+    <div class="flex-col-center">
       <VicenteSection class="w-10/12 mx-auto" />
     </div>
 
-    <!-- <WavesTopDivider :textcolor="'text-primary'" :height="'h-16'" /> -->
-
-    <!-- <WavesBotDivider class="text-darkAccent" :height="'h-16'" /> -->
-    <WavesTopDivider class="text-primary w-5/2" :height="'h-16'" />
+    <WavesBotDivider class="text-primary" :height="'h-20'" />
+    <WavesTopDivider class="text-primary" :height="'h-16'" />
+    <!-- <WavesTopDivider class="text-primary w-5/2" :height="'h-16'" /> -->
 
     <!-- Posts -->
     <div class="flex-col-center">
       <PostsPrincipales class="w-10/12 mx-auto" />
     </div>
 
-    <div class="text-primary hover:text-pink-200 transition-duration-5000 w-full hover:w-5/2">
+    <!-- <div class="text-primary hover:text-pink-200 transition-duration-5000 w-full hover:w-5/2">
       <WavesBotDivider class="w-5/2" :height="'h-20'" />
       <WavesTopDivider :height="'h-16'" />
-    </div>
+    </div>-->
     <!-- Seccion de clientes -->
-    <div class="flex-col-center">
+    <!-- <div class="flex-col-center">
       <clientesContentos />
-    </div>
+    </div>-->
     <WavesBotDivider class="text-darkText" :height="'h-40'" />
   </div>
 </template>

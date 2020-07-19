@@ -1,7 +1,7 @@
 <template>
   <div class="body min-h-screen text-darkText">
     <div
-      class="sticky top-0 w-full z-100 shadow-md bg-lightShade bg-opacity-98 border-b-6 border-lightAccent h-32"
+      class="sticky top-0 w-full z-100 bg-lightShade shadow-lg border-b-6 border-lightAccent bg-opacity-98 h-32"
     >
       <div class="flex h-full w-3/4 mx-auto">
         <!-- Logo -->

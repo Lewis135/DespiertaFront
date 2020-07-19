@@ -1,0 +1,14 @@
+query listaPost {  
+  listaPost: blogs {
+    id,
+    Titulo,
+    Resumen,
+    Imagen {name, url},
+    Contenido,
+    FechaPublicacion,
+    Publicado,
+    etiquetas,
+    Creador,
+  }
+}
+

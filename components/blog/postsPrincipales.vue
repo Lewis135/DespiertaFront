@@ -1,12 +1,14 @@
 <template>
-  <div class="relative flex justify-around py-8">
-    <div class="mr-5">
+  <div class="relative flex flex-wrap justify-around py-8">
+    <!-- {{listaPost}} -->
+    <div class="pr-5 w-1/2">
       <span class="text-2xl font-medium">Ultimos posts</span>
-      <div v-for="index in listaPostNuevos" :key="index">
-        <summaryPost />
+      <div v-for="post in listaPost" :key="post.id">
+        <summaryPost :titulo="post.Titulo" :summary="post.Resumen" :url="post.Imagen.url" />
+        <!-- {{post.etiquetas}} -->
       </div>
     </div>
-    <div class="ml-6">
+    <div class="pl-6 w-1/2">
       <span class="text-2xl font-medium">Destacados</span>
       <div v-for="index in listaPostDestacados" :key="index">
         <summaryPost />
@@ -20,12 +22,21 @@
 <script>
 import summaryPost from "~/components/blog/summaryPost.vue";
 import Boton from "~/components/Boton.vue";
+import postsQuery from "~/apollo/queries/blog/posts";
+
 export default {
   name: "PostsPrincipales",
   data() {
     return {
-      lista: [1, 2, 3, 4, 5, 6, 7]
+      lista: [1, 2, 3, 4, 5, 6, 7],
+      listaPost: []
     };
+  },
+  apollo: {
+    listaPost: {
+      prefetch: true,
+      query: postsQuery
+    }
   },
   computed: {
     listaPostNuevos() {

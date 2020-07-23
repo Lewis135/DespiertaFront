@@ -1,26 +1,29 @@
 <template>
-  <div class="relative flex flex-wrap justify-around py-8">
-    <div class="pr-5 w-1/2">
-      <span class="text-2xl font-medium">Ultimos posts</span>
+  <div class="relative flex flex-wrap justify-around my-8">
+    <div class="w-full lg:w-1/2 lg:pr-5">
+      <span class="text-2xl font-medium">Ultimos articulos</span>
       <div v-for="post in listaPost" :key="post.id">
         <summaryPost :titulo="post.titulo" :summary="post.resumen" :url="post.imagen.url" />
         <!-- {{post.etiquetas}} -->
       </div>
     </div>
-    <div class="pl-6 w-1/2">
-      <span class="text-2xl font-medium">Destacados</span>
+    <div class="w-full my-8 lg:pl-5 lg:mt-0 lg:w-1/2">
+      <span class="text-2xl font-medium">Recomendaciones</span>
       <div v-for="index in listaPostDestacados" :key="index">
         <summaryPost />
       </div>
     </div>
-    <div class="absolute top-8 right-0">
-      <Boton text="Leer más >" class="py-1 bg-darkAccent" />
+    <div class="absolute top-0 right-0">
+      <BotonLink
+        text="Leer más >"
+        ruta="/blog"
+        class="py-1 bg-darkAccent hover:bg-teal-600 transition-duration-250"
+      />
     </div>
   </div>
 </template>
 <script>
 import summaryPost from "~/components/blog/summaryPost.vue";
-import Boton from "~/components/Boton.vue";
 import listaPostQuery from "~/apollo/queries/blog/posts";
 
 export default {
@@ -46,8 +49,7 @@ export default {
     }
   },
   components: {
-    summaryPost,
-    Boton
+    summaryPost
   }
 };
 </script>

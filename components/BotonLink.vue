@@ -2,14 +2,15 @@
   <div
     class="mx-auto px-5 text-center rounded-2xl rounded-tr-none select-none cursor-pointer shadow-lg"
   >
-    <span class="text-lightShade font-medium">{{text}}</span>
+    <NuxtLink :to="ruta" class="text-lightShade font-medium">{{text}}</NuxtLink>
   </div>
 </template>
 <script>
 export default {
-  name: "Boton",
+  name: "BotonLink",
   props: {
-    text: { defaul: "Aceptar" }
+    text: { default: "Aceptar" },
+    ruta: { default: "/#" }
   },
   computed: {}
 };

@@ -2,23 +2,23 @@
   <!-- Body -->
   <div class="relative w-full overflow-x-hidden">
     Seccion de presentacion de la tienda
-    <WavesBotDivider class="text-lightAccent" :height="'h-20'" />
     <WavesTopDivider class="text-lightAccent" :height="'h-16'" />
+    <WavesBotDivider class="text-lightAccent" :height="'h-20'" />
     <!-- Tati -->
     <div class="flex justify-center">
       <TatiSection class="max-w-screen-xl mx-32" />
     </div>
 
-    <WavesBotDivider class="text-darkAccent" :height="'h-20'" />
     <WavesTopDivider class="text-darkAccent w-5/2" :height="'h-16'" />
+    <WavesBotDivider class="text-darkAccent" :height="'h-20'" />
 
     <!-- Vicente -->
     <div class="flex justify-center">
       <VicenteSection class="max-w-screen-xl mx-32" />
     </div>
 
-    <WavesBotDivider class="text-primary" :height="'h-20'" />
     <WavesTopDivider class="text-primary" :height="'h-16'" />
+    <WavesBotDivider class="text-primary" :height="'h-20'" />
     <!-- <WavesTopDivider class="text-primary w-5/2" :height="'h-16'" /> -->
 
     <!-- Posts -->
@@ -40,8 +40,6 @@
 <script>
 import TatiSection from "~/components/sections/tatiSection.vue";
 import VicenteSection from "~/components/sections/vicenteSection.vue";
-import WavesBotDivider from "~/components/wavesBotDivider.vue";
-import WavesTopDivider from "~/components/wavesTopDivider.vue";
 import PostsPrincipales from "~/components/blog/postsPrincipales.vue";
 import ClientesContentos from "~/components/clientesContentos.vue";
 
@@ -65,8 +63,6 @@ export default {
   components: {
     TatiSection,
     VicenteSection,
-    WavesBotDivider,
-    WavesTopDivider,
     PostsPrincipales,
     ClientesContentos,
     ImgWrapper

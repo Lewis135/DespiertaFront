@@ -1,26 +1,25 @@
 <template>
-  <div class="relative py-8">
-    <div class="flex flex-wrap mx-auto">
-      <div class="w-1/2 flex-col-center">
-        <div
-          class="text-4xl font-medium"
-        >Recupera energia y liberate del estres juntando el poder de los masajes con la aromaterapia.</div>
-        <div class="text-2xl font-medium pt-4">Una experiencia que desperá tus sentidos.</div>
-        <Boton
-          class="mt-10 py-5 text-xl uppercase bg-darkAccent hover:bg-teal-500"
-          text="Descube como"
-        />
-      </div>
-      <div class="w-1/2">
-        <ImgWrapper :src="vicenLogo" class="w-4/5 mx-auto" />
-      </div>
+  <div class="relative flex flex-col-reverse lg:flex-row py-8">
+    <!-- <div class="flex"> -->
+    <div class="w-full lg:w-1/2">
+      <div
+        class="text-4xl font-medium"
+      >Recupera energia y liberate del estres juntando el poder de los masajes con la aromaterapia.</div>
+      <div class="text-2xl font-medium pt-4">Una experiencia que desperá tus sentidos.</div>
+      <BotonLink
+        class="w-64 mt-10 py-5 text-xl uppercase bg-darkAccent hover:bg-teal-500"
+        text="Descubre como"
+      />
     </div>
+    <div class="w-full lg:w-1/2">
+      <ImgWrapper :src="vicenLogo" class="w-4/5 mx-auto" />
+    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import ImgWrapper from "~/components/ImgWrapper.vue";
-import Boton from "~/components/Boton.vue";
 
 export default {
   name: "vicenteSection",
@@ -30,8 +29,7 @@ export default {
     };
   },
   components: {
-    ImgWrapper,
-    Boton
+    ImgWrapper
   }
 };
 </script>

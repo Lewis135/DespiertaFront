@@ -9,7 +9,7 @@
       </div>
       <div class="flex h-72 my-3">
         <div class="md:w-6/12 xl:w-5/12 h-full px-4">
-          <summaryPostPanoramic />
+          <summaryPostPanoramic titulo="Ultimo post publicado" />
         </div>
 
         <div class="md:w-6/12 xl:w-4/12 px-3 flex flex-col justify-between">
@@ -20,7 +20,7 @@
           <summaryPostMini class="h-20" />
         </div>
         <div class="w-3/12 hidden xl:block">
-          <summaryPostPanoramic />
+          <summaryPostPanoramic titulo="Ultimo post destacado" />
         </div>
       </div>
     </div>

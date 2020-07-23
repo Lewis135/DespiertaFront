@@ -1,6 +1,6 @@
 <template>
-  <div id="wavesDivider" class="relative w-full" :class="height">
-    <div class="shapeDivider w-full">
+  <div id="wavesBotDivider" class="relative" :class="height">
+    <div class="shapeDivider" :class="[width]">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +28,7 @@
 </template>
 <script>
 export default {
+  name: "wavesBotDivider",
   props: {
     textcolor: { default: "text-primary" },
     height: { default: "h-14" },
@@ -38,12 +39,11 @@ export default {
 <style scoped>
 .shapeDivider {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   /* width: 100%; */
   overflow: hidden;
   line-height: 0;
-  transform: rotate(180deg);
 }
 
 .shapeDivider svg {

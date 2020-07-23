@@ -18,7 +18,7 @@
     </div>
     <nuxt class="relative" />
 
-    <WavesBotDivider class="text-darkText" :height="'h-40'" />
+    <WavesTopDivider class="text-darkText" :height="'h-40'" />
 
     <!-- Footer -->
     <div class="relative w-full bg-darkText text-white shadow-2xl">
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import WavesBotDivider from "~/components/wavesBotDivider.vue";
+// import WavesBotDivider from "~/components/wavesBotDivider.vue";
 
 export default {
-  name: "DefaultLayout",
-  components: {
-    WavesBotDivider
-  }
+  name: "DefaultLayout"
+  // components: {
+  //   WavesBotDivider
+  // }
 };
 </script>
 <style>

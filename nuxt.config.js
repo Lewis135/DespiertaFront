@@ -38,16 +38,15 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
 
-  plugins: [
-  ],
+  plugins: ['@/plugins/global-components.js'],
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/apollo'
-  ],
+  // buildModules: [
+  //   // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+  //   '@nuxtjs/tailwindcss',
+  //   '@nuxtjs/apollo'
+  // ],
 
   apollo: {
     clientConfigs: {

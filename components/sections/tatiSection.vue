@@ -1,12 +1,12 @@
 <template>
   <div class="relative py-8">
-    <div class="flex flex-wrap mx-auto">
-      <div class="w-1/2">
+    <div class="flex flex-col lg:flex-row mx-auto">
+      <div class="w-full lg:w-1/2 pb-10">
         <ImgWrapper :src="tatiLogo" :bgImage="bgImage" class="w-3/4 mx-auto" />
       </div>
-      <div class="w-1/2 flex-col-center">
+      <div class="w-full lg:w-1/2 flex-col-center">
         <div class="text-4xl font-medium">Vive disfrutando de cada momento que pasas contigo mismo.</div>
-        <Boton
+        <BotonLink
           class="mt-10 py-5 text-xl uppercase bg-lightAccent hover:bg-pink-200"
           text="Descubre el mindfulness"
         />
@@ -17,7 +17,6 @@
 
 <script>
 import ImgWrapper from "~/components/ImgWrapper.vue";
-import Boton from "~/components/Boton.vue";
 
 export default {
   data() {
@@ -27,8 +26,7 @@ export default {
     };
   },
   components: {
-    ImgWrapper,
-    Boton
+    ImgWrapper
   }
 };
 </script>

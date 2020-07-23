@@ -1,5 +1,5 @@
 <template>
-  <div class="body min-h-screen text-darkText">
+  <div class="body min-h-screen text-darkestText">
     <div
       class="sticky top-0 w-full z-100 bg-lightShade shadow-lg border-b-6 border-lightAccent bg-opacity-98 h-32"
     >
@@ -18,8 +18,10 @@
     </div>
     <nuxt class="relative" />
 
+    <WavesBotDivider class="text-darkText" :height="'h-40'" />
+
     <!-- Footer -->
-    <div class="relative bg-darkText text-white shadow-2xl flex-col-end">
+    <div class="relative w-full bg-darkText text-white shadow-2xl">
       <div class="mx-auto w-1/3">iconos de facebook y tal</div>
       <div class="relative mx-auto w-1/3 flex justify-between py-6">
         <a href="#" class="hover:text-lightAccent">Aviso legal</a>
@@ -34,8 +36,13 @@
 </template>
 
 <script>
+import WavesBotDivider from "~/components/wavesBotDivider.vue";
+
 export default {
-  name: "DefaultLayout"
+  name: "DefaultLayout",
+  components: {
+    WavesBotDivider
+  }
 };
 </script>
 <style>

@@ -3,7 +3,7 @@
     <div class="pr-5 w-1/2">
       <span class="text-2xl font-medium">Ultimos posts</span>
       <div v-for="post in listaPost" :key="post.id">
-        <summaryPost :titulo="post.Titulo" :summary="post.Resumen" :url="post.Imagen.url" />
+        <summaryPost :titulo="post.titulo" :summary="post.resumen" :url="post.imagen.url" />
         <!-- {{post.etiquetas}} -->
       </div>
     </div>
@@ -21,7 +21,7 @@
 <script>
 import summaryPost from "~/components/blog/summaryPost.vue";
 import Boton from "~/components/Boton.vue";
-import postsQuery from "~/apollo/queries/blog/posts";
+import listaPostQuery from "~/apollo/queries/blog/posts";
 
 export default {
   name: "PostsPrincipales",
@@ -34,7 +34,7 @@ export default {
   apollo: {
     listaPost: {
       prefetch: true,
-      query: postsQuery
+      query: listaPostQuery
     }
   },
   computed: {

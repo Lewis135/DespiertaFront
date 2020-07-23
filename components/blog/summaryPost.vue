@@ -56,9 +56,9 @@ export default {
   background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
+    rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 1) 10%,
-    rgba(255, 255, 255, 0.8) 20%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255, 255, 255, 0) 50%
   );
 }
 </style>

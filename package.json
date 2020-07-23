@@ -16,6 +16,7 @@
     "core-js": "^2.6.5",
     "graphql": "^15.1.0",
     "graphql-tag": "^2.10.3",
+    "marked": "^1.1.1",
     "nuxt": "^2.6.3"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 <template>
   <div class="relative h-full">
-    <img v-if="bgImage" :src="bgImage" class="absolute z-0" />
+    <img v-if="bgImage" :src="bgImage" :alt="alt" class="absolute z-0" />
     <div clas="w-full">
       <img :src="src" class="relative w-full z-1" />
     </div>
@@ -10,7 +10,8 @@
 export default {
   props: {
     src: String,
-    bgImage: String
+    bgImage: String,
+    alt: String
   },
   data() {
     return {};

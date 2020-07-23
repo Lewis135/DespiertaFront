@@ -1,19 +1,17 @@
-query listaPost{
-  listaPost: posts{
+query ($idpost: ID!) {  
+  post(id: $idpost) {
     id,
     titulo,
     subtitulo,
     resumen,
     contenido,
     imagen{
-      id, name, alternativeText, url
+      id, name, alternativeText, caption, url
     },
     creador,
     fechapublicacion,
     publicado,
     seccion,
     etiquetas,
-    
   }
 }
-

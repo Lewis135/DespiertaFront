@@ -11,6 +11,7 @@ module.exports = {
         lightShade: "#FDFCFA",
         darkShade: "#E5E5E5",
         darkText: "#4b4a4d",
+        darkestText: "#000000D6",
         gray: {
           ...colors.gray,
         },
@@ -48,6 +49,7 @@ module.exports = {
         "24": "24px",
       },
       borderRadius: {
+        "1/2": "50%",
         "xl": "1rem",
         "2xl": "2rem"
       },
@@ -58,7 +60,14 @@ module.exports = {
       minWidth: {
         "1/3": "33vh",
         "1/2": "50vh",
-        "32": "32rem",
+        "28": "7rem",
+        "32": "8rem",
+        "45": "10.5rem",
+        "46": "11rem",
+        "64": "16rem",
+        "88": "22rem",
+        "128": "32rem",
+
       },
       minHeight: {
         "screen-1/4": "25vh",

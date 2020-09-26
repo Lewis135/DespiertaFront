@@ -1,14 +1,15 @@
 <template>
   <div class="relative flex flex-col-reverse lg:flex-row py-8">
     <!-- <div class="flex"> -->
-    <div class="w-full lg:w-1/2">
+    <div class="w-full lg:w-1/2 flex-col-center">
       <div
         class="text-4xl font-medium"
       >Recupera energia y liberate del estres juntando el poder de los masajes con la aromaterapia.</div>
       <div class="text-2xl font-medium pt-4">Una experiencia que desperá tus sentidos.</div>
       <BotonLink
-        class="w-64 mt-10 py-5 text-xl uppercase bg-darkAccent hover:bg-teal-500"
+        class="mt-10 py-5 text-xl uppercase bg-darkAccent hover:bg-teal-500 transition-duration-250"
         text="Descubre como"
+        ruta="/aromaterapia"
       />
     </div>
     <div class="w-full lg:w-1/2">
@@ -25,11 +26,11 @@ export default {
   name: "vicenteSection",
   data() {
     return {
-      vicenLogo: require("~/assets/img/vicenteLogoQuiro.png")
+      vicenLogo: require("~/assets/img/vicenteLogoQuiro.png"),
     };
   },
   components: {
-    ImgWrapper
-  }
+    ImgWrapper,
+  },
 };
 </script>

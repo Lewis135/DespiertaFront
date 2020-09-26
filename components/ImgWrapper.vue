@@ -11,11 +11,11 @@ export default {
   props: {
     src: String,
     bgImage: String,
-    alt: String
+    alt: String,
   },
   data() {
     return {};
-  }
+  },
 };
 </script>
 <style scoped>

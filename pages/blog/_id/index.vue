@@ -1,13 +1,14 @@
 <template>
-  <div class="relative flex justify-center w-full py-8 font-serif text-lg">
-    <!-- Content -->
-    <div class="w-full max-w-2xl mx-32">
+  <div class="relative flex justify-center w-full py-8 font-serif text-lg min-h-screen">
+    <!-- Content Post-->
+    <!-- <div class="w-full max-w-2xl mx-32" v-if="post"> -->
+    <div class="max-w-screen-xl w-full mx-32 pb-24 border-b-2 border-primary" v-if="post">
       <!-- Titulo -->
-      <h1 class="text-4xl font-semibold">{{post.titulo}}</h1>
-      <!-- Subtitulo -->
-      <h2 class="font-medium font-sans text-gray-600">{{post.subtitulo}}</h2>
+      <h1 class>{{post.titulo}}</h1>
+      <!-- Subtitulo Post-->
+      <h2 class="font-sans text-gray-600 px-2">{{post.subtitulo}}</h2>
 
-      <!-- Creador con foto?-->
+      <!-- Creador Post-->
       <div class="flex justify-between my-4">
         <div class="flex">
           <div class="w-14 h-14 rounded-1/2 bg-red-400 p-2">foto</div>
@@ -18,17 +19,20 @@
         </div>
         <div>Botones redes</div>
       </div>
-      <!-- Foto -->
-      <div class="my-12">
-        <div class="mx-auto">
-          <ImgWrapper :src="imgSrc" :alt="post.imagen.alternativeText" />
-        </div>
-        <!-- <div class="h-80 bg-darkAccent">{{post.imagen.alternativeText}}</div> -->
-        <div class="text-center text-sm text-gray-600 py-2">{{post.imagen.caption}}</div>
-      </div>
 
-      <!-- Texto -->
-      <div class="font-medium" v-html="contenido"></div>
+      <!-- post en si mismo -->
+      <div class="w-full max-w-2xl mx-auto">
+        <!-- Foto Post-->
+        <div class="my-12">
+          <div class="mx-auto p-2 shadow-lg rounded-md">
+            <ImgWrapper class="shadow-md" :src="imgSrc" :alt="post.imagen.alternativeText" />
+          </div>
+          <div class="text-center text-sm text-gray-600 py-2">{{post.imagen.caption}}</div>
+        </div>
+
+        <!-- Texto Post-->
+        <div class="font-medium" v-html="contenido" />
+      </div>
     </div>
   </div>
 </template>
@@ -43,8 +47,8 @@ export default {
   props: {},
   data() {
     return {
-      post: Object,
-      ruta: this.$route.params.id
+      post: null,
+      ruta: this.$route.params.id,
     };
   },
   apollo: {
@@ -52,11 +56,12 @@ export default {
       prefecth: true,
       query: postQuery,
       variables() {
+        console.log("??");
         return {
-          idpost: this.ruta
+          idpost: this.ruta,
         };
-      }
-    }
+      },
+    },
   },
   computed: {
     contenido() {
@@ -64,10 +69,10 @@ export default {
     },
     imgSrc() {
       return nuxtConfig.env.strapiBaseUri + this.post.imagen.url;
-    }
+    },
   },
   components: {
-    ImgWrapper
-  }
+    ImgWrapper,
+  },
 };
 </script>

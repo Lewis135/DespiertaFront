@@ -1,15 +1,14 @@
 <template>
-  <div class="relative w-full h-full overflow-hidden">
+  <div id="summaryPostPanoramic" class="relative w-full h-full overflow-hidden">
     <!-- Imagen, WIP-->
-    <div class="w-full h-32 bg-red-500">
-      <ImgWrapper :src="imgUrl" />
+    <div class="w-full cursor-pointer" @click="eventPostSelected()">
+      <img :src="imgUrl" class="object-cover w-full h-40 shadow-md z-1 mx-auto" />
     </div>
     <!-- Texto -->
-    <div class="relative mt-2 pl-4">
-      <div class="font-semibold text-xl">{{titulo}}</div>
+    <div class="relative pl-4">
+      <h3 class="cursor-pointer" @click="eventPostSelected()">{{titulo}}</h3>
       <!-- <div class="postBackground absolute h-full w-full pointer-events-none" /> -->
       <div class="text-gray-600 text-sm h-16 overflow-hidden">{{subtitulo}}</div>
-
       <!-- Autor -->
       <div class="text-sm mt-2">{{autor}}</div>
     </div>
@@ -26,29 +25,34 @@ export default {
     titulo: { default: "The morning in the backyard" },
     subtitulo: {
       default:
-        "And the maravelous adventures of JoJo and Lagun, a socking and unexpected story."
+        "And the maravelous adventures of JoJo and Lagun, a socking and unexpected story.",
     },
     autor: { default: "Mayonesa, Protector del jardin" },
-    url: String
+    url: String,
   },
   data() {
     return {
-      listaTags: ["aromas", "masajes", "mindfulness"]
+      listaTags: ["aromas", "masajes", "mindfulness"],
     };
   },
   computed: {
     imgUrl() {
       return nuxtConfig.env.strapiBaseUri + this.url;
-    }
+    },
+  },
+  methods: {
+    eventPostSelected() {
+      this.$emit("eventPostSelected");
+    },
   },
   components: {
-    ImgWrapper
-  }
+    ImgWrapper,
+  },
 };
 </script>
 
 <style scoped>
-.postBackground {
+/* .postBackground {
   background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
@@ -56,5 +60,9 @@ export default {
     rgba(255, 255, 255, 1) 10%,
     rgba(255, 255, 255, 0) 50%
   );
+} */
+
+#summaryPostPanoramic:hover h3 {
+  @apply text-lightAccent transition-duration-250;
 }
 </style>

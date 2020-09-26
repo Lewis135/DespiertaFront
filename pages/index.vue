@@ -1,4 +1,4 @@
- <template>
+ <template class="py-8">
   <!-- Body -->
   <div class="relative w-full overflow-x-hidden">
     Seccion de presentacion de la tienda
@@ -9,8 +9,14 @@
       <TatiSection class="max-w-screen-xl mx-32" />
     </div>
 
-    <WavesTopDivider class="text-darkAccent w-5/2" :height="'h-16'" />
-    <WavesBotDivider class="text-darkAccent" :height="'h-20'" />
+    <WavesTopDivider
+      class="text-darkAccent hover:text-teal-600 transition-duration-250 w-5/2"
+      :height="'h-16'"
+    />
+    <WavesBotDivider
+      class="text-darkAccent hover:text-teal-600 transition-duration-250"
+      :height="'h-20'"
+    />
 
     <!-- Vicente -->
     <div class="flex justify-center">
@@ -58,14 +64,14 @@ export default {
       let bgstyle = "background-image: url(" + this.perrosol + ");";
       bgstyle += "filter: grayscale(75%);";
       return bgstyle;
-    }
+    },
   },
   components: {
     TatiSection,
     VicenteSection,
     PostsPrincipales,
     ClientesContentos,
-    ImgWrapper
-  }
+    ImgWrapper,
+  },
 };
 </script>

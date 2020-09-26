@@ -9,6 +9,7 @@
         <BotonLink
           class="mt-10 py-5 text-xl uppercase bg-lightAccent hover:bg-pink-200"
           text="Descubre el mindfulness"
+          ruta="/mindfulness"
         />
       </div>
     </div>
@@ -22,11 +23,11 @@ export default {
   data() {
     return {
       tatiLogo: require("~/assets/img/tatiLogo.png"),
-      bgImage: require("~/assets/img/inkTexture.png")
+      bgImage: require("~/assets/img/inkTexture.png"),
     };
   },
   components: {
-    ImgWrapper
-  }
+    ImgWrapper,
+  },
 };
 </script>

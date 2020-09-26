@@ -1,7 +1,7 @@
 <template>
   <div class="body min-h-screen text-darkestText">
     <div
-      class="sticky top-0 w-full z-100 bg-lightShade shadow-lg border-b-6 border-lightAccent bg-opacity-98 h-32"
+      class="sticky top-0 w-full z-100 bg-lightShade shadow-lg border-b-6 border-lightAccent bg-opacity-98"
     >
       <div class="flex h-full w-3/4 mx-auto">
         <!-- Logo -->
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <nuxt class="relative" />
+    <nuxt class="relative min-h-screen-3/4" />
 
     <WavesTopDivider class="text-darkText" :height="'h-40'" />
 
@@ -39,7 +39,7 @@
 // import WavesBotDivider from "~/components/wavesBotDivider.vue";
 
 export default {
-  name: "DefaultLayout"
+  name: "DefaultLayout",
   // components: {
   //   WavesBotDivider
   // }

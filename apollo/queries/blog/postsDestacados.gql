@@ -1,8 +1,8 @@
-query ($limit: Int=-1){
+query ($limit: Int=1){
   listaPost: posts(
       sort: "fechapublicacion:DESC",
       limit:$limit,
-      where: {publicado:true}
+      where: {publicado:true, destacado:true}
     ){
     id,
     titulo,
@@ -15,7 +15,6 @@ query ($limit: Int=-1){
     creador,
     fechapublicacion,
     publicado,
-    destacado,
     seccion,
     etiquetas,
     

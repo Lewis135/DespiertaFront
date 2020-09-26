@@ -1,4 +1,6 @@
-const { colors } = require("tailwindcss/defaultTheme");
+const {
+  colors
+} = require("tailwindcss/defaultTheme");
 
 module.exports = {
   theme: {
@@ -14,6 +16,7 @@ module.exports = {
         darkestText: "#000000D6",
         gray: {
           ...colors.gray,
+          "100": "#f4f4f4"
         },
       },
       spacing: {
@@ -81,15 +84,18 @@ module.exports = {
         "5": "5rem",
       },
       maxHeight: {
-        "5000": "5000px",
-        "64": "16rem",
         "20": "4.75rem",
         "32": "8rem",
+        "46": "11rem",
+        "64": "16rem",
+        "5000": "5000px",
+        "100": "25rem",
         "1/10": "10vh",
         "1/4": "25vh",
         "1/2": "50vh",
         "3/4": "75vh",
         "9/10": "90vh",
+        "11/10": "110vh",
         "1/2Griton": "5000px",
         "1Griton": "10000px",
       },
@@ -102,8 +108,8 @@ module.exports = {
         "80": "20rem",
         "88": "22rem",
         "100": "25rem",
-        "101": "25,25rem",
-        "102": "25,5rem",
+        "101": "25.25rem",
+        "102": "25.5rem",
         "1/2": "50%",
         "1/3": "33.33%",
         "2/3": "66.66%",
@@ -199,12 +205,13 @@ module.exports = {
       all: "all",
       color: "color",
       bg: "background-color",
-      border: "border-color",
+      border: ["border-color"],
       colors: ["color", "background-color", "border-color"],
       opacity: "opacity",
       transform: "transform",
+      fontStyle: "font-style"
     },
-    transitionDuration: {
+    trans: {
       default: "250ms",
       "0": "0ms",
       "100": "100ms",
@@ -225,13 +232,20 @@ module.exports = {
     maxWidth: ["hover"],
     backgroundColor: ["responsive", "hover", "focus", "odd"],
     flexDirection: ["responsive"],
+    borderRadius: ["hover", 'group-hover'],
+    fontStyle: ["hover", 'focus']
+
   },
   plugins: [
-    function ({ addUtilities, config, e }) {
+    function ({
+      addUtilities,
+      config,
+      e
+    }) {
       const rotations = config("theme.rotate");
       const translationsY = config("theme.translateY");
       const transitionProperties = config("theme.transitionProperty");
-      const transitionDurations = config("theme.transitionDuration");
+      const transitionDurations = config("theme.trans");
 
       const generateClasses = (objectName, propertyName, keyName) => {
         return Object.keys(objectName).map((key) => {

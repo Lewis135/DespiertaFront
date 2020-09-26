@@ -1,18 +1,23 @@
 <template>
-  <div class="relative w-full">
+  <div id="summaryPostMini" class="relative w-full">
     <!-- <div class="border-b-2 border-darkAccent"> -->
     <div class="w-full h-full flex flex-wrap">
       <!-- Imagen, WIP-->
-      <div class="w-20 h-full bg-red-500">
-        <ImgWrapper :src="imgUrl" />
-      </div>
+      <img
+        :src="imgUrl"
+        class="object-cover w-20 h-20 z-1 shadow-md cursor-pointer"
+        @click="eventPostSelected()"
+      />
+
       <!-- Texto -->
-      <div class="relative min-w-32 md:w-3/4 w-16 h-full pl-2 truncate">
-        <div class="font-semibold">{{titulo}}</div>
+      <div class="relative min-w-28 md:w-3/5 w-16 h-full pl-2 truncate">
+        <h4 class="cursor-pointer transition-duration-250" @click="eventPostSelected()">{{titulo}}</h4>
         <label class="text-gray-600">{{subtitulo}}</label>
 
         <!-- Autor -->
-        <div class="text-sm mt-3">{{autor}}</div>
+        <div class="mt-3 truncate">
+          <label class="text-sm">{{autor}}</label>
+        </div>
       </div>
     </div>
   </div>
@@ -27,30 +32,36 @@ export default {
   props: {
     titulo: { default: "Going crazy" },
     subtitulo: {
-      default: "If you can sleep so hard and never go late, you must be a hero."
+      default:
+        "If you can sleep so hard and never go late, you must be a hero.",
     },
     autor: { default: "Mayonesa, Protector del jardin" },
 
-    url: String
+    url: String,
   },
   data() {
     return {
-      listaTags: ["aromas", "masajes", "mindfulness"]
+      listaTags: ["aromas", "masajes", "mindfulness"],
     };
   },
   computed: {
     imgUrl() {
       return nuxtConfig.env.strapiBaseUri + this.url;
-    }
+    },
+  },
+  methods: {
+    eventPostSelected() {
+      this.$emit("eventPostSelected");
+    },
   },
   components: {
-    ImgWrapper
-  }
+    ImgWrapper,
+  },
 };
 </script>
 
 <style scoped>
-.postBackground {
+/* .postBackground {
   background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
@@ -58,5 +69,9 @@ export default {
     rgba(255, 255, 255, 1) 10%,
     rgba(255, 255, 255, 0) 50%
   );
+} */
+
+#summaryPostMini:hover h4 {
+  @apply text-lightAccent;
 }
 </style>

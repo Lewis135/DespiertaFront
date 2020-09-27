@@ -46,7 +46,8 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
 
-  plugins: ['@/plugins/vue-material.js', '@/plugins/global-components.js', ],
+  plugins: ['@/plugins/global-components.js', ],
+  // '@/plugins/vue-material.js'
   /*
    ** Nuxt.js dev-modules
    */

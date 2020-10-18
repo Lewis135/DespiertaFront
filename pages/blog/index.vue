@@ -4,19 +4,19 @@
       <!-- Seccion de arriba -->
       <div class="max-w-screen-xl w-full mx-32 border-b-2 border-primary">
         <h1>Publicaciones</h1>
-
         <div class="flex">
           <div>Tipo de post:</div>
           <label class="w-32 bg-primary rounded px-2 mx-2">Mindfulness</label>
         </div>
-        <div class="flex h-72 mt-6 mb-4" v-if="listaPost.length > 0">
+        <div class="flex h-72 mt-6 mb-4" v-if="listPosts.length > 0">
+
           <div class="md:w-6/12 xl:w-3/7 h-full px-4">
             <summaryPostPanoramic
-              :titulo="postUltimo.titulo"
-              :subtitulo="postUltimo.subtitulo"
-              :url="postUltimo.imagen.url"
-              :autor="postUltimo.creador"
-              @eventPostSelected="goToPost(postUltimo)"
+              :titulo="postUltimo.content.title"
+              :subtitulo="postUltimo.content.subtitle"
+              :url="postUltimo.content.image"
+              :autor="postUltimo.content.author"
+              @eventPostSelected="goToPost(postUltimo)" 
             />
           </div>
 
@@ -25,19 +25,20 @@
               v-for="post in listaPostUltimos"
               :key="post.id"
               class="h-20"
-              :titulo="post.titulo"
-              :subtitulo="post.subtitulo"
-              :url="post.imagen.url"
-              :autor="post.creador"
+              :titulo="post.content.title"
+              :subtitulo="post.content.subtitle"
+              :url="post.content.image"
+              :autor="post.content.author"
               @eventPostSelected="goToPost(post)"
             />
           </div>
           <div class="w-2/7 hidden xl:block">
             <summaryPostPanoramic
-              :titulo="postDestacado.titulo"
-              :subtitulo="postDestacado.subtitulo"
-              :autor="postDestacado.creador"
-              :url="postDestacado.imagen.url"
+              v-if="postDestacado"
+              :titulo="postDestacado.content.title"
+              :subtitulo="postDestacado.content.subtitle"
+              :autor="postDestacado.content.author"
+              :url="postDestacado.content.image"
               @eventPostSelected="goToPost(postDestacado)"
             />
           </div>
@@ -57,11 +58,11 @@
         <!-- Lista post abajo-->
         <div class="xl:w-5/7 px-4">
           <div class="h-full">
-            <div v-for="post in listaPost" :key="post.id" class="pb-6">
+            <div v-for="post in listPosts" :key="post.id" class="pb-6">
               <summaryPost
-                :titulo="post.titulo"
-                :resumen="post.resumen"
-                :url="post.imagen.url"
+                :titulo="post.content.title"
+                :resumen="post.content.intro"
+                :url="post.content.image"
                 @eventPostSelected="goToPost(post)"
               />
             </div>
@@ -79,51 +80,48 @@
 import summaryPost from "~/components/blog/summaryPost";
 import summaryPostPanoramic from "~/components/blog/summaryPostPanoramic";
 import summaryPostMini from "~/components/blog/summaryPostMini";
-import listaPostQuery from "~/apollo/queries/blog/posts";
 import newsletterVertical from "~/components/blog/newsletterVertical"
+import { mapGetters, mapState } from 'vuex';
+
 export default {
   name: "blogPrincipal",
-  data() {
-    return {
-      listaPost: [],
-    };
+  data: () =>({
+  }),
+  async fetch({store, params}){
+    store.dispatch("posts/retrieveListPosts");
   },
   computed: {
+    ...mapGetters({
+      listPosts: 'posts/getListPosts'
+    }),
     postDestacado() {
-      return this.listaPost.find((post) => post.destacado);
+      let aux = this.listPosts.find((post) => post.content.destacado);
+      return aux;
     },
     listaPostUltimos() {
-      let aux = this.listaPost
+      let aux = this.listPosts
         .filter((post) => post != this.postDestacado)
         .filter((post) => post != this.postUltimo)
         .slice(0, 3);
       return aux;
     },
     listaPostAntiguos() {
-      let aux = this.listaPost
+      let aux = this.listPosts
         .filter((post) => post != this.postDestacado)
         .filter((post) => post != this.postUltimo)
-        .slice(3, this.listaPost.length);
+        .slice(3, this.listPosts.length);
       return aux;
     },
 
     postUltimo() {
-      return this.listaPost.find((post) => !post.destacado);
+      return this.listPosts.find((post) => !post.content.destacado);
     },
   },
   methods: {
     goToPost(postSelected) {
-      console.log(postSelected);
-      const idPost = postSelected.id;
-      this.$router.push(`/blog/${idPost}`);
-      // ", params: { idPost } });
-    },
-  },
-  apollo: {
-    listaPost: {
-      // prefetch: true,
-      query: listaPostQuery,
-      variables: { limit: 10 },
+      this.$store.commit('posts/setSelectedPost', postSelected)
+      const slug = postSelected.slug;
+      this.$router.push(`/blog/${slug}`);
     },
   },
   components: {

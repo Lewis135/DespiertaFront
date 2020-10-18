@@ -2,14 +2,15 @@
   <div class="relative flex flex-wrap justify-around my-8">
     <div class="w-full lg:w-1/2 lg:pr-5">
       <div class="mb-4">
-        <span class="text-2xl font-medium">Ultimos articulos</span>
+        <span class="text-2xl font-medium">Últimos articulos</span>
       </div>
-      <div v-for="post in listaPost" :key="post.id" class="mb-6">
+      <div v-for="post in listPosts" :key="post.id" class="mb-6">
+          <!-- v-if="post.contentimagen" -->
         <summaryPost
-          v-if="post.imagen"
-          :titulo="post.titulo"
-          :resumen="post.resumen"
-          :url="post.imagen.url"
+          :titulo="post.content.title"
+          :resumen="post.content.intro"
+          :url="post.content.image"
+          @eventPostSelected="goToPost(post)" 
         />
       </div>
     </div>
@@ -18,8 +19,13 @@
         <span class="text-2xl font-medium">Recomendaciones</span>
       </div>
 
-      <div v-for="post in listaPost" :key="post.id" class="mb-6">
-        <summaryPost />
+      <div v-for="post in listPosts" :key="post.id" class="mb-6">
+        <summaryPost 
+          :titulo="post.content.title"
+          :resumen="post.content.intro"
+          :url="post.content.image"
+          @eventPostSelected="goToPost(post)"
+        />
       </div>
     </div>
     <div class="absolute top-0 right-0">
@@ -33,25 +39,24 @@
 </template>
 <script>
 import summaryPost from "~/components/blog/summaryPost.vue";
-import listaPostQuery from "~/apollo/queries/blog/posts";
+import { mapGetters } from "vuex"
 
 export default {
   name: "PostsPrincipales",
-  data() {
-    return {
-      listaPost: [],
-    };
+  data: () => ({
+  }),
+  computed: {
+    ...mapGetters({
+      listPosts: 'posts/getListPosts'
+    })
   },
-  apollo: {
-    listaPost: {
-      prefetch: true,
-      query: listaPostQuery,
-      variables: {
-        limit: 2,
-      },
+  methods: {
+    goToPost(postSelected) {
+      this.$store.commit('posts/setSelectedPost', postSelected)
+      const slug = postSelected.slug;
+      this.$router.push(`/blog/${slug}`);
     },
   },
-  computed: {},
   components: {
     summaryPost,
   },

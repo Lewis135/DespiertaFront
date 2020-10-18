@@ -28,9 +28,9 @@
         <a href="#" class="hover:text-lightAccent">Politica de privacidad</a>
         <a href="#" class="hover:text-lightAccent">Politica de cookies</a>
       </div>
-      <!-- <div
+      <div
         class="absolute bottom-0 right-2 text-sm text-primary"
-      >Con mucho ♥♥ por Ricardo Montaner Lopez</div>-->
+      >Con mucho ♥♥ por Ricardo Montaner Lopez</div>
     </div>
   </div>
 </template>
@@ -40,15 +40,12 @@
 
 export default {
   name: "DefaultLayout",
-  // components: {
-  //   WavesBotDivider
-  // }
 };
 </script>
 <style>
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

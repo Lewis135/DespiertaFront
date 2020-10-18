@@ -2,13 +2,15 @@
   <div class="relative flex flex-col-reverse lg:flex-row py-8">
     <!-- <div class="flex"> -->
     <div class="w-full lg:w-1/2 flex-col-center">
-      <div
-        class="text-4xl font-medium"
-      >Recupera energia y liberate del estres juntando el poder de los masajes con la aromaterapia.</div>
-      <div class="text-2xl font-medium pt-4">Una experiencia que desperá tus sentidos.</div>
+      <div class="text-4xl font-medium">
+        {{text}}
+      </div>
+      <div class="text-2xl font-medium pt-4">
+        {{subText}}
+      </div>
       <BotonLink
         class="mt-10 py-5 text-xl uppercase bg-darkAccent hover:bg-teal-500 transition-duration-250"
-        text="Descubre como"
+        :text="buttonText"
         ruta="/aromaterapia"
       />
     </div>
@@ -24,11 +26,14 @@ import ImgWrapper from "~/components/ImgWrapper.vue";
 
 export default {
   name: "vicenteSection",
-  data() {
-    return {
-      vicenLogo: require("~/assets/img/vicenteLogoQuiro.png"),
-    };
+  props:{
+    text: {type: String, default: "text"},
+    subText: {type: String, default: "subtext"},
+    buttonText: {type: String, default: "buttonText"}
   },
+  data: () => ({
+    vicenLogo: require("~/assets/img/vicenteLogoQuiro.png"),
+  }),
   components: {
     ImgWrapper,
   },

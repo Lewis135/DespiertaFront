@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     imgUrl() {
-      return nuxtConfig.env.strapiBaseUri + this.url;
+      return this.url;
     },
   },
   methods: {

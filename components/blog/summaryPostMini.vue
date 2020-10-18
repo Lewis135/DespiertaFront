@@ -36,7 +36,6 @@ export default {
         "If you can sleep so hard and never go late, you must be a hero.",
     },
     autor: { default: "Mayonesa, Protector del jardin" },
-
     url: String,
   },
   data() {
@@ -46,7 +45,7 @@ export default {
   },
   computed: {
     imgUrl() {
-      return nuxtConfig.env.strapiBaseUri + this.url;
+      return this.url;
     },
   },
   methods: {

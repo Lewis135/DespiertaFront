@@ -120,6 +120,8 @@
                   <botonLink
                     class="bg-darkAccent hover:bg-teal-600 transition-duration-250 h-full"
                     text="Lo quiero"
+                    :ruta="whatsProductLink(item)"
+                    :externalLink="true"
                   />
                 </div>
               </div>
@@ -137,15 +139,17 @@
             <div class="flex justify-center my-8">
               <!-- Posts -->
               <div class="w-full flex justify-center">
-                <div class="w-1/3 mx-12" v-for="(post, id) in listaPost" :key="id">
-                  <div class="max-h-100 h-100 bg-primary p-4 flex flex-col justify-around">
+                <div class="w-1/3 mx-12" v-for="(post, id) in listPosts" :key="id">
+                  <div class=" bg-primary p-4 flex flex-col justify-around">
                     <div>
-                      <div class="h-32 bg-white">{{`${post.foto}` || "foto"}}</div>
-                      <div class="font-semibold text-xl text-center">{{post.titulo}}</div>
-                      <v-clamp :max-lines="5" class="mt-4">{{`${post.resumen}` || `${post.texto}`}}</v-clamp>
+                      <!-- <div class="h-32 bg-white">{{`${post.content.image}` || "foto"}}</div> -->
+                      <img :src="post.content.image" class="object-cover w-full h-40 shadow-md z-1 mx-auto" />
+
+                      <div class="font-semibold text-xl text-center">{{post.content.title}}</div>
+                      <v-clamp :max-lines="5" class="mt-4">{{`${post.content.intro}`}}</v-clamp>
                     </div>
                     <div class="hover:italic cursor-pointer mt-auto mb-2 transition-duration-500">
-                      <h4 class="text-darkAccent hover:">Leer más ></h4>
+                      <h4 @click="goToPost(post)" class="text-darkAccent hover:">Leer más ></h4>
                     </div>
                   </div>
                 </div>
@@ -156,7 +160,7 @@
             <div
               class="hover:italic cursor-pointer mt-auto mb-2 transition-duration-500 text-center"
             >
-              <h3 class="text-darkAccent uppercase">Mas articulos ></h3>
+              <h3 @click="goToBlog()" class="text-darkAccent uppercase">Más articulos ></h3>
             </div>
           </div>
         </div>
@@ -200,6 +204,7 @@
 <script>
 import VClamp from "vue-clamp";
 import SeccionWrapper from "~/components/SeccionWrapper.vue";
+import {mapGetters} from 'vuex'
 export default {
   name: "Aromaterapia",
   data() {
@@ -297,33 +302,19 @@ export default {
           price: "3.00",
         },
       ],
-      listaPost: [
-        {
-          titulo: "Titulo post",
-          resumen:
-            "tem.resumen con lorem ipsum y blablablablablbla .. item.resumen con loremblablablablablbla .. um y blablablablablbla .. item.resumen con loremblablablablablbla .. item item.resumen con lorem blablablablablbla .. item.resumen con lorem ipsum y blablablablablbla .. item.resumen con lorem ipsum y blablablablablbla",
-          texto: "",
-        },
-        {
-          titulo: "Titulo post2",
-          resumen:
-            "tem.resumen con lorem ipsum y blablablablablbla .. item.resumen con loremblablablablablbla .. um y blablablablablbla .. item.resumen con loremblablablablablbla .. item item.resumen con lorem blablablablablbla .. item.resumen con lorem ipsum y blablablablablbla .. item.resumen con lorem ipsum y blablablablablbla",
-          texto: "",
-        },
-        {
-          titulo: "Titulo post3",
-          resumen:
-            "tem.resumen con lorem ipsum y blablablablablbla .. item.resumen con loremblablablablablbla .. um y blablablablablbla .. item.resumen con loremblablablablablbla .. item item.resumen con lorem blablablablablbla .. item.resumen con lorem ipsum y blablablablablbla .. item.resumen con lorem ipsum y blablablablablbla",
-          texto: "",
-        },
-      ],
       titleIpsum: "Quiromasajismum",
       loremIpsum:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet felis a eros congue egestas at vitae leo. Morbi enim arcu, porta eget hendrerit et, blandit et ex. Praesent ornare nulla et ipsum faucibus, eu bibendum mauris vehicula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tempus laoreet neque, sed placerat mi lacinia sit amet. Quisque dui sem, congue vitae ex quis, finibus facilisis elit. Pellentesque at porttitor massa.",
       selectedSection: 0,
     };
   },
+  async fetch({store, params}){
+    store.dispatch('posts/retrieveListPosts')
+  },
   computed: {
+    ...mapGetters({
+      listPosts: 'posts/getListPosts'
+    }),
     bgMassage() {
       let bgStyle = "background-image: url(" + this.imgMassage + ");";
       bgStyle += "filter:  saturate(0.50) brightness(63%);";
@@ -336,6 +327,24 @@ export default {
       bgStyle += "background-position:50% 60%;";
       return bgStyle;
     },
+  },
+  methods: {
+    goToBlog(){
+      this.$router.push("/blog")
+    },
+    goToPost(postSelected) {
+      this.$store.commit('posts/setSelectedPost', postSelected)
+      const slug = postSelected.slug;
+      this.$router.push(`/blog/${slug}`);
+    },
+    whatsProductLink(product){
+      // https://wa.me/34662283424?text=Holiw
+      let phoneNumber = "34662283424";
+      let text=`https://wa.me/${phoneNumber}?text=`;
+      
+      text += `Hola, he visto que teneis *${product.title}* me gustaria saber si sigue existiendo :D`
+      return text;
+    }
   },
   components: {
     VClamp,

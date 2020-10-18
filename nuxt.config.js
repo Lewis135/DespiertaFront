@@ -57,21 +57,17 @@ export default {
     // '@nuxtjs/apollo'
   ],
 
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
-      }
-    }
-  },
-
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/apollo',
+    ['storyblok-nuxt', {
+      accessToken: 'xxP8PXIqtVrZcbGqIpRjDgtt',
+      cacheProvider: 'memory',
+      // customParent: 'URL_WHERE_RUN_STORYBLOCK_APP' // optional
+    }]
 
   ],
   /*

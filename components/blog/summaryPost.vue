@@ -9,7 +9,7 @@
       </div>
       <!-- Texto -->
       <div class="relative flex-grow pl-1 h-full">
-        <h3 class="cursor-pointer">{{titulo}}</h3>
+        <h3 class="cursor-pointer" @click="eventPostSelected()">{{titulo}}</h3>
         <div class="postBackground absolute h-full w-full pointer-events-none" />
         <p class>{{resumen}}</p>
       </div>
@@ -23,7 +23,6 @@
 
 <script>
 import ImgWrapper from "~/components/ImgWrapper";
-import nuxtConfig from "~/nuxt.config";
 
 export default {
   name: "SummaryPost",
@@ -47,7 +46,7 @@ export default {
   },
   computed: {
     imgUrl() {
-      return nuxtConfig.env.strapiBaseUri + this.url;
+      return this.url;
     },
   },
   components: {
